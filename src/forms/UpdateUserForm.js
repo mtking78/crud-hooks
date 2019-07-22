@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const UpdateUserForm = props => {
   const [user, setUser] = useState(props.currentUser)
@@ -7,6 +7,10 @@ const UpdateUserForm = props => {
     const { name, value } = event.target
     setUser({ ...user, [name]: value })
   }
+
+  useEffect(() => {
+    setUser(props.currentUser)
+  }, [props])
 
   return (
     <form
