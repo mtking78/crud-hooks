@@ -50,6 +50,8 @@ const App = () => {
 
   const deleteUser = id => {
     setUsers(users.filter(user => user.id !== id))
+    // prevent accidentally deleting while updating
+    setEditing(false)
   }
 
   return (
